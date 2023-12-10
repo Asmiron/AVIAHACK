@@ -1,14 +1,10 @@
-from functools import wraps
 from pathlib import Path
-from typing import Union, List
+from typing import Union
 import os
 import json
 from multiprocessing import Pool
 from pprint import pprint
-import pywt
-import numpy as np
 import openfoamparser_mai as Ofpp
-import pyvista
 import pywt
 import warnings
 import numpy as np
@@ -319,13 +315,12 @@ def init(folder, t_max, name):
 
     np.savetxt(folder + "/data_Orig", (data), fmt="%d")
 
-    np.savetxt(folder + "/data_Decomp", (reconstructed_data), fmt="%d")
 
     mse = calculate_mse(original_data, compressed_data)
     print(f"MSE: {mse}")
 
     WeightOrig = os.path.getsize(folder + "/data_Orig")
-    WeightComp = os.path.getsize(folder + "/data_Decomp")
+    WeightComp = os.path.getsize(folder + "/data_Compr")
 
     compression_ratio1 = WeightOrig/WeightComp
     print(f"Коэффициент сжатия: {compression_ratio1:.2f}")

@@ -2,4 +2,4 @@ numpy==1.25.2
 openfoamparser-mai==0.14
 trimesh==4.0.5
 pyvista==0.43.0
-PyWavelets==1.5.0
+PyWavelets==1.4.1

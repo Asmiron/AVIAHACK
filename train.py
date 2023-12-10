@@ -72,7 +72,7 @@ def recursive_traverse_folders(folder):
     name = ""
     if folder.__contains__('agard'):
         name = 'agard'
-    elif folder.__contains__('data_wage'):
+    elif folder.__contains__('data_wage') or folder.__contains__('data_step'):
         name = 'obstacle'
     if has_numeric_directories(folder):
         start_and_go(folder, name)
