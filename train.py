@@ -68,7 +68,6 @@ def start_and_go(directory, name):
 
 def recursive_traverse_folders(folder):
     directories = [os.path.join(folder, d) for d in os.listdir(folder) if os.path.isdir(os.path.join(folder, d))]
-    print(folder)
     name = ""
     if folder.__contains__('agard'):
         name = 'agard'
@@ -84,14 +83,19 @@ def recursive_traverse_folders(folder):
 
 
 def main():
-    if len(sys.argv) != 3:
-        print("Укажите путь к папке.")
-        return
-
+    name=""
     folder = sys.argv[1]
     directories = [os.path.join(folder, d) for d in os.listdir(folder) if os.path.isdir(os.path.join(folder, d))]
+
     for directory in directories:
         recursive_traverse_folders(directory)
+    if has_numeric_directories(folder):
+        if folder.__contains__('agard'):
+            name = 'agard'
+        elif folder.__contains__('data_wage') or folder.__contains__('data_step'):
+            name = 'obstacle'
+        start_and_go(folder, name)
+
 
 
 if __name__ == "__main__":
